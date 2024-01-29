@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   database:
     image: postgres:16.1
@@ -7,15 +7,15 @@ services:
     env_file:
       - .env
     ports:
-      - '5432:5432'
+      - "5432:5432"
     volumes:
       - postgres:/var/lib/postgresql/data
     networks:
-      tech_challenge_network:
+      transaction_fraud_network:
 
 volumes:
   postgres:
 
 networks:
-  tech_challenge_network:
-    name: tech_challenge_network
+  transaction_fraud_network:
+    name: transaction_fraud_network
