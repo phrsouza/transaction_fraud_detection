@@ -40,6 +40,7 @@ gem 'bootsnap', require: false
 gem 'active_model_serializers'
 
 gem 'data_migrate'
+gem 'rack-attack'
 gem 'rubocop', require: false
 gem 'rubocop-factory_bot', require: false
 gem 'rubocop-rails', require: false
