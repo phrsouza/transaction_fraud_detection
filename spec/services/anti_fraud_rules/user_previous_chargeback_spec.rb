@@ -14,6 +14,7 @@ RSpec.describe AntiFraudRules::UserPreviousChargeback do
               user_id: previous_transaction.user_id
             }
           )
+
           expect(rule_result).to be false
         end
       end
@@ -29,6 +30,7 @@ RSpec.describe AntiFraudRules::UserPreviousChargeback do
               user_id: chargebacked_transaction.user_id
             }
           )
+
           expect(rule_result).to be true
         end
       end

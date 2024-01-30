@@ -15,6 +15,7 @@ RSpec.describe AntiFraudRules::UserTransactionsExceeded do
               transaction_date: Time.current
             }
           )
+
           expect(rule_result).to be false
         end
       end
@@ -31,6 +32,7 @@ RSpec.describe AntiFraudRules::UserTransactionsExceeded do
               transaction_date: Time.current
             }
           )
+
           expect(rule_result).to be true
         end
       end
