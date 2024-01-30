@@ -14,6 +14,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_233515) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "devices", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,7 +38,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_233515) do
     t.string "card_number", null: false
     t.datetime "chargebacked_at"
     t.decimal "amount", precision: 8, scale: 2, null: false
-    t.bigint "device_id", null: false
+    t.bigint "device_id"
     t.bigint "user_id", null: false
     t.bigint "merchant_id", null: false
     t.datetime "created_at", null: false
