@@ -1,0 +1,15 @@
+default: &default
+  user_transactions_exceeded:
+    time_interval: <%= ENV.fetch("USER_TRANSACTIONS_EXCEEDED_TIME_INTERVAL", "30").to_i %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
