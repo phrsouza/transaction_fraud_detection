@@ -11,7 +11,7 @@ Lint/MissingSuper:
   Exclude:
     - "app/services/**/*"
 RSpec/NestedGroups:
-  MaxNesting: 5
+  Max: 5
 require:
   - rubocop-factory_bot
   - rubocop-rails
