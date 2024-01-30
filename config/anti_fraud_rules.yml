@@ -1,7 +1,10 @@
 default: &default
   user_transactions_exceeded:
     time_interval: <%= ENV.fetch("USER_TRANSACTIONS_EXCEEDED_TIME_INTERVAL", "30").to_i %>
-
+  high_amount_in_period:
+    start_hour: <%= ENV.fetch("HIGH_AMOUNT_IN_PERIOD_START_HOUR", "22").to_i %>
+    end_hour: <%= ENV.fetch("HIGH_AMOUNT_IN_PERIOD_END_HOUR", "6").to_i %>
+    max_amount: <%= ENV.fetch("HIGH_AMOUNT_IN_PERIOD_MAX_AMOUNT", "800.00").to_f %>
 development:
   <<: *default
 
