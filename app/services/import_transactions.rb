@@ -5,8 +5,9 @@ class ImportTransactions < ApplicationService
     converters: %i[integer float date_time], headers: true
   }.freeze
 
-  def initialize(file_path:)
+  def initialize(file_path:, logger: Rails.logger)
     @file_path = file_path
+    @logger = logger
   end
 
   def call
@@ -17,6 +18,7 @@ class ImportTransactions < ApplicationService
 
   def import_transactions
     CSV.foreach(@file_path, **CSV_OPTIONS) do |row|
+      @logger.info("Creating transaction #{row['transaction_id']}")
       create_transaction(row)
     end
   end
