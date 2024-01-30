@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-class ImportTransactions
+class ImportTransactions < ApplicationService
   CSV_OPTIONS = {
     converters: %i[integer float date_time], headers: true
   }.freeze
-
-  def self.call(file_path:)
-    new(file_path:).call
-  end
 
   def initialize(file_path:)
     @file_path = file_path
