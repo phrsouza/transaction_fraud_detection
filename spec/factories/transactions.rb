@@ -3,10 +3,14 @@
 FactoryBot.define do
   factory :transaction do
     card_number { 'MyString' }
-    chargebacked_at { '2024-01-29 20:35:15' }
+    chargebacked_at { nil }
     amount { '9.99' }
     device
     user
     merchant
+
+    trait :chargebacked do
+      chargebacked_at { Time.current }
+    end
   end
 end
