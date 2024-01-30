@@ -53,6 +53,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 6.1.0'
   gem 'shoulda-matchers', '~> 6.0'
+  gem 'timecop', '~> 0.9.8'
 end
 
 group :development do
