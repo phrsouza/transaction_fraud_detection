@@ -4,17 +4,31 @@ services:
     image: postgres:16.1
     stdin_open: true
     tty: true
-    env_file:
-      - .env
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
       - postgres:/var/lib/postgresql/data
     networks:
       transaction_fraud_network:
+  api:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/api
+      - gem_cache:/usr/local/bundle/gems
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    networks:
+      transaction_fraud_network:
 
 volumes:
   postgres:
+  gem_cache:
 
 networks:
   transaction_fraud_network:
