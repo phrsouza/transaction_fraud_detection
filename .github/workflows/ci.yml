@@ -1,17 +1,36 @@
-name: CI
+name: CI pipeline
 on: push
 jobs:
-  rubocop:
-    name: Rubocop
+  jobs:
+  ci_validation:
     runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+
+    services:
+      postgres:
+        image: postgres:alpine
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: 3.1.2
-          bundler: 2.4.5
-      - name: Analyze code
+          bundler-cache: true
+          cache-version: 1
+
+      - name: Test
+        run: bundle exec rspec
+
+      - name: Lint
         run: bundle exec rubocop
