@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
   param :card_number, String, desc: 'Anonymized credit card number', required: true, example: '434505******9116'
   param :transaction_date, String, desc: 'Transaction date in iso8601 format', required: true,
                                    example: '2024-01-31T00:39:13Z'
-  param :transaction_amount, :number, desc: 'Transaction amount', required: true, example: 373.50
+  param :transaction_amount, :decimal, desc: 'Transaction amount', required: true, example: 373.50
   returns code: 200, desc: 'Transaction id and anti fraud recommendation' do
     property :transaction_id, Integer, desc: 'Transaction id'
     property :recommendation, %w[approve deny], desc: 'Anti fraud recommendation'
