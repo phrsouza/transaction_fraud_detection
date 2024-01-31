@@ -2,6 +2,23 @@
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'simplecov'
+require 'simplecov-json'
+
+module SimpleCov
+  module Formatter
+    class MergedFormatter
+      def format(result)
+        SimpleCov::Formatter::HTMLFormatter.new.format(result)
+        SimpleCov::Formatter::JSONFormatter.new.format(result)
+      end
+    end
+  end
+end
+SimpleCov.formatter = SimpleCov::Formatter::MergedFormatter
+
+SimpleCov.start
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
