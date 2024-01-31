@@ -1,13 +1,13 @@
 name: CI
 on: push
 jobs:
-  ci_validation:
+  ci:
     runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
 
     services:
-      postgres:
+      database:
         image: postgres:alpine
         ports:
           - 5432:5432
