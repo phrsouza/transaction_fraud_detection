@@ -11,5 +11,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          ruby-version: 3.1.2
+          bundler: 2.4.5
       - name: Analyze code
         run: bundle exec rubocop
