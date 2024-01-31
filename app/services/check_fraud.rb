@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+#
+# Service object to check for frauds based on a set of rules
+#
 class CheckFraud < ApplicationService
+  # @return [Array<Class>] A list of classes that implement each default rule
   DEFAULT_RULES = [
     AntiFraudRules::HighAmountInPeriod,
     AntiFraudRules::UserPreviousChargeback,
@@ -12,6 +16,11 @@ class CheckFraud < ApplicationService
     @rules = rules
   end
 
+  #
+  # Method to execute the set of rules against the transaction data
+  #
+  # @return [Boolean] true if the transaction violates any of the rules, false otherwise
+  #
   def call
     fraud?
   end
