@@ -64,6 +64,10 @@ group :development do
   gem 'error_highlight', '~> 0.4.0'
 end
 
+group :test do
+  gem 'simplecov', require: false
+end
+
 gem 'dockerfile-rails', '>= 1.5', group: :development
 
 gem 'redis', '~> 5.0'
