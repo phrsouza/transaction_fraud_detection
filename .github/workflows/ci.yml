@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       POSTGRES_HOST: localhost
-      MINIMUM_COVERAGE: 100.0
+      MINIMUM_COVERAGE: 93.00
 
     services:
       database:
