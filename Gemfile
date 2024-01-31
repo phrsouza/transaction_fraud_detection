@@ -38,7 +38,7 @@ gem 'bootsnap', require: false
 # gem "rack-cors"
 
 gem 'active_model_serializers'
-
+gem 'apipie-rails'
 gem 'data_migrate'
 gem 'rack-attack'
 gem 'rubocop', require: false
