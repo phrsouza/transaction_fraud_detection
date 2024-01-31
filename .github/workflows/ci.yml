@@ -4,8 +4,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     env:
-      RAILS_ENV: test
-      BUNDLE_VERSION: system
+      POSTGRES_HOST: localhost
 
     services:
       database:
