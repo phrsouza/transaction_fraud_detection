@@ -1,7 +1,6 @@
-name: CI pipeline
+name: CI
 on: push
 jobs:
-  jobs:
   ci_validation:
     runs-on: ubuntu-latest
     env:
