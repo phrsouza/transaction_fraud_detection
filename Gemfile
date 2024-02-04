@@ -70,4 +70,6 @@ group :test do
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-json', require: false
+  gem 'stackprof', '>= 0.2.9'
+  gem 'test-prof', '~> 1.0'
 end
