@@ -50,3 +50,7 @@ jobs:
           else
             echo "Coverage ($covered_percent%) passed the required threshold of $required_coverage%."
           fi
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4-beta
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
