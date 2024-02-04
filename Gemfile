@@ -41,10 +41,9 @@ gem 'active_model_serializers'
 gem 'apipie-rails'
 gem 'data_migrate'
 gem 'rack-attack'
-gem 'rubocop', require: false
-gem 'rubocop-factory_bot', require: false
-gem 'rubocop-rails', require: false
-gem 'rubocop-rspec', require: false
+gem 'redis', '~> 5.0'
+gem 'sentry-rails', '~> 5.14'
+gem 'sentry-ruby', '~> 5.14'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -60,19 +59,15 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-
+  gem 'dockerfile-rails', '>= 1.5'
   gem 'error_highlight', '~> 0.6.0'
 end
 
 group :test do
+  gem 'rubocop', require: false
+  gem 'rubocop-factory_bot', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'simplecov-json', require: false
 end
-
-gem 'dockerfile-rails', '>= 1.5', group: :development
-
-gem 'redis', '~> 5.0'
-
-gem 'sentry-ruby', '~> 5.14'
-
-gem 'sentry-rails', '~> 5.14'
